@@ -5,12 +5,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>GermanGenie – Learn German Grammar</title>
 
-  <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,700;1,700&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
 
-  <!-- Stylesheets -->
+
   <link rel="stylesheet" href="css/reset.css" />
   <link rel="stylesheet" href="css/variables.css" />
   <link rel="stylesheet" href="css/layout.css" />
@@ -21,41 +20,50 @@
 <body>
 
   <header>
-    <nav class="nav">
-      <a href="/" class="nav-logo">German<span>Genie</span></a>
-      <ul>
+    <nav class="nav" aria-label="Main navigation">
+      <a href="/" class="nav-logo" aria-label="GermanGenie home">German<span>Genie</span></a>
+      <ul aria-label="Site links">
         <li><a href="/download">Download</a></li>
         <li><a href="/about">About Us</a></li>
       </ul>
       <div class="nav-right">
-        <div class="lang-toggle">
-          <button class="lang-btn active" onclick="setLang('EN', this)">EN</button>
-          <span class="lang-sep">|</span>
-          <button class="lang-btn" onclick="setLang('DE', this)">DE</button>
+        <div class="lang-toggle" role="group" aria-label="Language switcher">
+          <button class="lang-btn active" aria-pressed="true"  onclick="setLang('EN', this)">EN</button>
+          <span class="lang-sep" aria-hidden="true">|</span>
+          <button class="lang-btn"        aria-pressed="false" onclick="setLang('DE', this)">DE</button>
         </div>
-        <button class="btn-nav" onclick="ctaClick()">Start learning free</button>
+        <button class="btn-nav" onclick="ctaClick()" aria-label="Start learning German for free">
+          Start learning free
+        </button>
       </div>
     </nav>
   </header>
 
   <main>
 
-    <!-- HERO -->
-    <section class="hero">
+ 
+    <section class="hero" aria-labelledby="hero-heading">
       <div class="hero-text">
-        <div class="hero-eyebrow">For English Speakers</div>
-        <h1>Learn German grammar, <em>one piece</em> at a time.</h1>
+        <div class="hero-eyebrow" aria-label="Target audience: For English Speakers">
+          For English Speakers
+        </div>
+        <h1 id="hero-heading">
+          Learn German grammar, <em>one piece</em> at a time.
+        </h1>
         <p class="hero-sub">
           Built for English speakers who've struggled with German cases and grammar rules —
           GermanGenie guides you through a <strong>structured, puzzle-based learning path</strong>
           so progress feels tangible every day.
         </p>
         <div class="cta-row">
-          <button class="btn-primary" onclick="ctaClick()">Start learning free</button>
+          <button class="btn-primary" onclick="ctaClick()" aria-label="Start learning German for free">
+            Start learning free
+          </button>
         </div>
       </div>
-      <div class="puzzle-zone">
-        <svg class="puzzle-svg" id="puzzle-svg" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+      <div class="puzzle-zone" aria-hidden="true">
+        <svg class="puzzle-svg" id="puzzle-svg" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg"
+             role="img" aria-label="Four puzzle pieces assembling together">
           <g class="piece piece-1">
             <path d="M20,20 L80,20 L80,50 Q90,50 90,60 Q90,70 80,70 L80,80 L50,80 Q50,90 60,90 Q70,90 70,100 Q70,110 60,110 Q50,110 50,100 L20,100 Z"
                   fill="#1A1E26" stroke="#2AE838" stroke-width="1.5"/>
@@ -76,35 +84,35 @@
       </div>
     </section>
 
-    <!-- SOCIAL PROOF BAR -->
-    <div class="proof-bar">
+
+    <div class="proof-bar" role="region" aria-label="Social proof statistics">
       <div class="proof-item reveal">
-        <div class="proof-icon green">★</div>
+        <div class="proof-icon green" aria-hidden="true">★</div>
         <div>
-          <div class="proof-stars">★★★★★</div>
+          <div class="proof-stars" aria-label="Five star rating">★★★★★</div>
           <div class="proof-value">4.9 / 5</div>
           <div class="proof-label">Average rating</div>
         </div>
       </div>
-      <div class="proof-divider"></div>
+      <div class="proof-divider" aria-hidden="true"></div>
       <div class="proof-item reveal reveal-delay-1">
-        <div class="proof-icon blue">👥</div>
+        <div class="proof-icon blue" aria-hidden="true">👥</div>
         <div>
           <div class="proof-value">10,000+</div>
           <div class="proof-label">Active learners worldwide</div>
         </div>
       </div>
-      <div class="proof-divider"></div>
+      <div class="proof-divider" aria-hidden="true"></div>
       <div class="proof-item reveal reveal-delay-2">
-        <div class="proof-icon green">📚</div>
+        <div class="proof-icon green" aria-hidden="true">📚</div>
         <div>
           <div class="proof-value">4 Cases Covered</div>
           <div class="proof-label">Nominative · Accusative · Dative · Genitive</div>
         </div>
       </div>
-      <div class="proof-divider"></div>
+      <div class="proof-divider" aria-hidden="true"></div>
       <div class="proof-item reveal reveal-delay-3">
-        <div class="proof-icon red">🚀</div>
+        <div class="proof-icon red" aria-hidden="true">🚀</div>
         <div>
           <div class="proof-value">Zero prior German</div>
           <div class="proof-label">needed to get started</div>
@@ -112,29 +120,31 @@
       </div>
     </div>
 
-    <!-- PAIN POINTS -->
-    <section>
+
+    <section aria-labelledby="pain-heading">
       <div class="pain-header">
         <p class="section-tag tag-red">The Problem</p>
-        <h2 class="section-h2">German grammar is a deal-breaker for most students.</h2>
+        <h2 class="section-h2" id="pain-heading">
+          German grammar is a deal-breaker for most students.
+        </h2>
         <p class="section-sub">You're not bad at learning. It's just that German grammar is a genuine challenge,
         and most learning platforms don't treat it that way.</p>
       </div>
       <div class="pain-grid">
         <article class="pain-card reveal">
-          <div class="pain-icon">⚡</div>
+          <div class="pain-icon" aria-hidden="true">⚡</div>
           <h3>The four German cases feel arbitrary</h3>
           <p>Nominative, accusative, dative, genitive — most learners memorize tables
           without ever understanding the logic, so nothing sticks beyond week two.</p>
         </article>
         <article class="pain-card reveal reveal-delay-1">
-          <div class="pain-icon">↔</div>
+          <div class="pain-icon" aria-hidden="true">↔</div>
           <h3>German word order breaks your brain</h3>
           <p>Verbs flipped to the end, separable prefixes, sentences that rearrange
           with every conjunction. English intuition actively works against you here.</p>
         </article>
         <article class="pain-card reveal reveal-delay-2">
-          <div class="pain-icon">✕</div>
+          <div class="pain-icon" aria-hidden="true">✕</div>
           <h3>Other apps treat grammar as an afterthought</h3>
           <p>Duolingo and Babbel bury grammar in footnotes. GermanGenie puts it center
           stage — because without grammar, fluency is just memorizing phrases.</p>
@@ -142,20 +152,20 @@
       </div>
     </section>
 
-    <!-- FEATURES -->
-    <section class="section-alt">
+
+    <section class="section-alt" aria-labelledby="features-heading">
       <div class="features-layout">
-        <div class="features-img">
+        <div class="features-img" aria-label="App screenshot showing GermanGenie's puzzle-based learning interface">
           <!-- App screenshot goes here -->
         </div>
         <div>
           <p class="section-tag tag-blue">The Solution</p>
-          <h2 class="section-h2">Everything you need, nothing you don't.</h2>
+          <h2 class="section-h2" id="features-heading">Everything you need, nothing you don't.</h2>
           <p class="section-sub">GermanGenie is built around grammar — not vocabulary lists or travel phrases.
           Every lesson connects logically to the last.</p>
           <div class="features-list">
             <div class="feature-item reveal">
-              <div class="feature-num">01</div>
+              <div class="feature-num" aria-hidden="true">01</div>
               <div>
                 <h4>Puzzle-based learning paths</h4>
                 <p>Each grammar concept is a puzzle piece. Complete a topic, unlock the next.
@@ -163,7 +173,7 @@
               </div>
             </div>
             <div class="feature-item reveal reveal-delay-1">
-              <div class="feature-num">02</div>
+              <div class="feature-num" aria-hidden="true">02</div>
               <div>
                 <h4>Designed for English speakers specifically</h4>
                 <p>Explanations reference English grammar directly — so your existing
@@ -171,7 +181,7 @@
               </div>
             </div>
             <div class="feature-item reveal reveal-delay-2">
-              <div class="feature-num">03</div>
+              <div class="feature-num" aria-hidden="true">03</div>
               <div>
                 <h4>Instant, detailed grammar feedback</h4>
                 <p>Every mistake comes with a full explanation — not just a red cross.
@@ -183,14 +193,14 @@
       </div>
     </section>
 
-    <!-- HOW IT WORKS -->
-    <section>
+
+    <section aria-labelledby="how-heading">
       <p class="section-tag tag-blue">How It Works</p>
-      <h2 class="section-h2">Your learning path, piece by piece.</h2>
+      <h2 class="section-h2" id="how-heading">Your learning path, piece by piece.</h2>
       <div class="steps">
         <div class="step reveal">
-          <div class="step-num">01</div>
-          <div class="step-pieces">
+          <div class="step-num" aria-hidden="true">01</div>
+          <div class="step-pieces" aria-label="1 of 3 pieces completed">
             <div class="sp on"></div><div class="sp"></div><div class="sp"></div>
           </div>
           <h3>Start with your first piece</h3>
@@ -198,8 +208,8 @@
           that's absolute zero or picking up where you left off on another app.</p>
         </div>
         <div class="step reveal reveal-delay-1">
-          <div class="step-num">02</div>
-          <div class="step-pieces">
+          <div class="step-num" aria-hidden="true">02</div>
+          <div class="step-pieces" aria-label="2 of 3 pieces completed">
             <div class="sp on"></div><div class="sp on"></div><div class="sp"></div>
           </div>
           <h3>Complete grammar modules</h3>
@@ -208,8 +218,8 @@
           piece clicking into place.</p>
         </div>
         <div class="step reveal reveal-delay-2">
-          <div class="step-num">03</div>
-          <div class="step-pieces">
+          <div class="step-num" aria-hidden="true">03</div>
+          <div class="step-pieces" aria-label="3 of 3 pieces completed">
             <div class="sp on"></div><div class="sp on"></div><div class="sp on"></div>
           </div>
           <h3>See the full picture emerge</h3>
@@ -219,19 +229,19 @@
       </div>
     </section>
 
-    <!-- TESTIMONIALS -->
-    <section class="section-alt">
+    
+    <section class="section-alt" aria-labelledby="reviews-heading">
       <p class="section-tag tag-green">Reviews</p>
-      <h2 class="section-h2">Learners who finally got it.</h2>
+      <h2 class="section-h2" id="reviews-heading">Learners who finally got it.</h2>
       <div class="testi-grid">
         <article class="testi-card reveal">
-          <div class="testi-stars">★★★★★</div>
-          <div class="testi-openquote">&ldquo;</div>
+          <div class="testi-stars" aria-label="Five star review">★★★★★</div>
+          <div class="testi-openquote" aria-hidden="true">&ldquo;</div>
           <p class="testi-quote">I spent two years on other apps and still couldn't construct
           a proper German sentence. After six weeks with GermanGenie, the cases actually
           made sense for the first time.</p>
           <div class="testi-author">
-            <div class="testi-avatar av-blue">JM</div>
+            <div class="testi-avatar av-blue" aria-hidden="true">JM</div>
             <div>
               <div class="testi-name">James M.</div>
               <div class="testi-role">Expat living in Berlin</div>
@@ -239,13 +249,13 @@
           </div>
         </article>
         <article class="testi-card reveal reveal-delay-1">
-          <div class="testi-stars">★★★★★</div>
-          <div class="testi-openquote">&ldquo;</div>
+          <div class="testi-stars" aria-label="Five star review">★★★★★</div>
+          <div class="testi-openquote" aria-hidden="true">&ldquo;</div>
           <p class="testi-quote">The puzzle structure kept me coming back every day. I could
           actually see my progress — it wasn't just a streak counter, it was a real map
           of what I'd genuinely learned.</p>
           <div class="testi-author">
-            <div class="testi-avatar av-green">SR</div>
+            <div class="testi-avatar av-green" aria-hidden="true">SR</div>
             <div>
               <div class="testi-name">Sarah R.</div>
               <div class="testi-role">University student, UK</div>
@@ -253,13 +263,13 @@
           </div>
         </article>
         <article class="testi-card reveal reveal-delay-2">
-          <div class="testi-stars">★★★★★</div>
-          <div class="testi-openquote">&ldquo;</div>
+          <div class="testi-stars" aria-label="Five star review">★★★★★</div>
+          <div class="testi-openquote" aria-hidden="true">&ldquo;</div>
           <p class="testi-quote">As someone who failed German in school, I was skeptical.
           The English-first explanations made everything click. I'm now preparing
           for my B1 exam.</p>
           <div class="testi-author">
-            <div class="testi-avatar av-red">DK</div>
+            <div class="testi-avatar av-red" aria-hidden="true">DK</div>
             <div>
               <div class="testi-name">Daniel K.</div>
               <div class="testi-role">Professional, United States</div>
@@ -269,16 +279,16 @@
       </div>
     </section>
 
-    <!-- FAQ -->
-    <section>
+ 
+    <section aria-labelledby="faq-heading">
       <p class="section-tag tag-blue">FAQ</p>
-      <h2 class="section-h2">Questions worth asking</h2>
+      <h2 class="section-h2" id="faq-heading">Questions worth asking</h2>
       <div class="faq-list">
         <div class="faq-item">
           <details open>
             <summary>
               Do I need any German knowledge to start?
-              <div class="faq-toggle">
+              <div class="faq-toggle" aria-hidden="true">
                 <span class="faq-plus">+</span>
                 <span class="faq-minus">−</span>
               </div>
@@ -292,7 +302,7 @@
           <details>
             <summary>
               Is GermanGenie focused on grammar only?
-              <div class="faq-toggle">
+              <div class="faq-toggle" aria-hidden="true">
                 <span class="faq-plus">+</span>
                 <span class="faq-minus">−</span>
               </div>
@@ -306,7 +316,7 @@
           <details>
             <summary>
               How is GermanGenie different from Duolingo or Babbel?
-              <div class="faq-toggle">
+              <div class="faq-toggle" aria-hidden="true">
                 <span class="faq-plus">+</span>
                 <span class="faq-minus">−</span>
               </div>
@@ -320,7 +330,7 @@
           <details>
             <summary>
               Does GermanGenie cover all four German grammatical cases?
-              <div class="faq-toggle">
+              <div class="faq-toggle" aria-hidden="true">
                 <span class="faq-plus">+</span>
                 <span class="faq-minus">−</span>
               </div>
@@ -334,7 +344,7 @@
           <details>
             <summary>
               How long until I see real progress?
-              <div class="faq-toggle">
+              <div class="faq-toggle" aria-hidden="true">
                 <span class="faq-plus">+</span>
                 <span class="faq-minus">−</span>
               </div>
@@ -347,15 +357,16 @@
       </div>
     </section>
 
-    <!-- CLOSING CTA -->
-    <section class="cta-section" id="cta-section">
-      <div class="cta-glow"></div>
-      <h2 class="reveal">Your first piece is <em>waiting.</em></h2>
+   
+    <section class="cta-section" id="cta-section" aria-labelledby="cta-heading">
+      <div class="cta-glow" aria-hidden="true"></div>
+      <h2 class="reveal" id="cta-heading">Your first piece is <em>waiting.</em></h2>
       <p class="reveal reveal-delay-1">
         Join thousands of English speakers who stopped struggling with German grammar
         — and started actually understanding it.
       </p>
-      <button class="btn-primary reveal reveal-delay-2" onclick="ctaClick()">
+      <button class="btn-primary reveal reveal-delay-2" onclick="ctaClick()"
+              aria-label="Start learning German for free">
         Start learning free
       </button>
     </section>
@@ -363,8 +374,8 @@
   </main>
 
   <footer>
-    <a href="/" class="footer-logo">German<span>Genie</span></a>
-    <nav class="footer-links">
+    <a href="/" class="footer-logo" aria-label="GermanGenie home">German<span>Genie</span></a>
+    <nav class="footer-links" aria-label="Footer navigation">
       <a href="/about">About Us</a>
       <a href="/privacy">Privacy Policy</a>
       <a href="/terms">Terms &amp; Conditions</a>
