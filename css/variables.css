@@ -1,0 +1,33 @@
+
+
+:root {
+  
+  --bg:       #0F1115;
+  --bg2:      #13161C;
+  --bg3:      #1A1E26;
+  --bg4:      #1E222B;
+  --accent:   #2AE838;
+  --accent-d: #20B82C;
+  --blue:     #4B86FF;
+  --blue-l:   #8DB0FB;
+  --red:      #EF4444;
+  --text:     #F2F4FB;
+  --muted:    #7A8099;
+  --border:   #23272F;
+  --card:     #181C23;
+
+
+  --font-display: 'Fraunces', serif;
+  --font-body:    'DM Sans', sans-serif;
+
+  --space-xs:  8px;
+  --space-sm:  16px;
+  --space-md:  32px;
+  --space-lg:  48px;
+  --space-xl:  80px;
+
+ 
+  --radius:    14px;
+  --radius-sm: 8px;
+  --radius-lg: 18px;
+}
