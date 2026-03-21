@@ -1,152 +1,217 @@
-```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>GermanGenie – Learn German Grammar</title>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,700;1,700&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="css/reset.css" />
+  <link rel="stylesheet" href="css/variables.css" />
+  <link rel="stylesheet" href="css/layout.css" />
+  <link rel="stylesheet" href="css/components.css" />
+  <link rel="stylesheet" href="css/animations.css" />
 </head>
 
 <body>
 
   <header>
-    <nav>
-      <a href="/">GermanGenie</a>
+    <nav class="nav">
+      <a href="/" class="nav-logo">German<span>Genie</span></a>
       <ul>
         <li><a href="/download">Download</a></li>
         <li><a href="/about">About Us</a></li>
       </ul>
-      <div>
-        <button>EN</button>
-        <span>|</span>
-        <button>DE</button>
+      <div class="nav-right">
+        <div class="lang-toggle">
+          <button class="lang-btn active" onclick="setLang('EN', this)">EN</button>
+          <span class="lang-sep">|</span>
+          <button class="lang-btn" onclick="setLang('DE', this)">DE</button>
+        </div>
+        <button class="btn-nav" onclick="ctaClick()">Start learning free</button>
       </div>
-      <button>Start learning free</button>
     </nav>
   </header>
 
   <main>
 
-    
-    <section>
-      <div>
-        <p>For English Speakers</p>
+    <!-- HERO -->
+    <section class="hero">
+      <div class="hero-text">
+        <div class="hero-eyebrow">For English Speakers</div>
         <h1>Learn German grammar, <em>one piece</em> at a time.</h1>
-        <p>Built for English speakers who've struggled with German cases and grammar rules —
-        GermanGenie guides you through a structured, puzzle-based learning path
-        so progress feels tangible every day.</p>
-        <button>Start learning free</button>
+        <p class="hero-sub">
+          Built for English speakers who've struggled with German cases and grammar rules —
+          GermanGenie guides you through a <strong>structured, puzzle-based learning path</strong>
+          so progress feels tangible every day.
+        </p>
+        <div class="cta-row">
+          <button class="btn-primary" onclick="ctaClick()">Start learning free</button>
+        </div>
       </div>
-      <div>
-        <!-- Puzzle animation placeholder -->
+      <div class="puzzle-zone">
+        <svg class="puzzle-svg" id="puzzle-svg" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+          <g class="piece piece-1">
+            <path d="M20,20 L80,20 L80,50 Q90,50 90,60 Q90,70 80,70 L80,80 L50,80 Q50,90 60,90 Q70,90 70,100 Q70,110 60,110 Q50,110 50,100 L20,100 Z"
+                  fill="#1A1E26" stroke="#2AE838" stroke-width="1.5"/>
+          </g>
+          <g class="piece piece-2">
+            <path d="M110,20 L180,20 L180,100 L150,100 Q150,90 140,90 Q130,90 130,100 L110,100 L110,80 Q100,80 100,70 Q100,60 110,60 Z"
+                  fill="#1A1E26" stroke="#4B86FF" stroke-width="1.5"/>
+          </g>
+          <g class="piece piece-3">
+            <path d="M20,110 L50,110 Q50,100 60,100 Q70,100 70,110 Q70,120 60,120 Q50,120 50,130 L80,130 L80,180 L20,180 Z"
+                  fill="#1A1E26" stroke="#EF4444" stroke-width="1.5"/>
+          </g>
+          <g class="piece piece-4">
+            <path d="M110,130 L140,130 Q140,120 150,120 Q160,120 160,130 Q160,140 150,140 Q140,140 140,150 L180,150 L180,180 L110,180 Z"
+                  fill="#1A1E26" stroke="#2AE838" stroke-width="1.5"/>
+          </g>
+        </svg>
       </div>
     </section>
 
-    
-    <div>
-      <div>
-        <span>★★★★★</span>
-        <p>4.9 / 5</p>
-        <p>Average rating</p>
+    <!-- SOCIAL PROOF BAR -->
+    <div class="proof-bar">
+      <div class="proof-item reveal">
+        <div class="proof-icon green">★</div>
+        <div>
+          <div class="proof-stars">★★★★★</div>
+          <div class="proof-value">4.9 / 5</div>
+          <div class="proof-label">Average rating</div>
+        </div>
       </div>
-      <div>
-        <p>10,000+</p>
-        <p>Active learners worldwide</p>
+      <div class="proof-divider"></div>
+      <div class="proof-item reveal reveal-delay-1">
+        <div class="proof-icon blue">👥</div>
+        <div>
+          <div class="proof-value">10,000+</div>
+          <div class="proof-label">Active learners worldwide</div>
+        </div>
       </div>
-      <div>
-        <p>4 Cases Covered</p>
-        <p>Nominative · Accusative · Dative · Genitive</p>
+      <div class="proof-divider"></div>
+      <div class="proof-item reveal reveal-delay-2">
+        <div class="proof-icon green">📚</div>
+        <div>
+          <div class="proof-value">4 Cases Covered</div>
+          <div class="proof-label">Nominative · Accusative · Dative · Genitive</div>
+        </div>
       </div>
-      <div>
-        <p>Zero prior German</p>
-        <p>needed to get started</p>
+      <div class="proof-divider"></div>
+      <div class="proof-item reveal reveal-delay-3">
+        <div class="proof-icon red">🚀</div>
+        <div>
+          <div class="proof-value">Zero prior German</div>
+          <div class="proof-label">needed to get started</div>
+        </div>
       </div>
     </div>
 
-    
+    <!-- PAIN POINTS -->
     <section>
-      <p>The Problem</p>
-      <h2>German grammar is a deal-breaker for most students.</h2>
-      <p>You're not bad at learning. It's just that German grammar is a genuine challenge,
-      and most learning platforms don't treat it that way.</p>
-      <div>
-        <article>
+      <div class="pain-header">
+        <p class="section-tag tag-red">The Problem</p>
+        <h2 class="section-h2">German grammar is a deal-breaker for most students.</h2>
+        <p class="section-sub">You're not bad at learning. It's just that German grammar is a genuine challenge,
+        and most learning platforms don't treat it that way.</p>
+      </div>
+      <div class="pain-grid">
+        <article class="pain-card reveal">
+          <div class="pain-icon">⚡</div>
           <h3>The four German cases feel arbitrary</h3>
           <p>Nominative, accusative, dative, genitive — most learners memorize tables
           without ever understanding the logic, so nothing sticks beyond week two.</p>
         </article>
-        <article>
+        <article class="pain-card reveal reveal-delay-1">
+          <div class="pain-icon">↔</div>
           <h3>German word order breaks your brain</h3>
           <p>Verbs flipped to the end, separable prefixes, sentences that rearrange
           with every conjunction. English intuition actively works against you here.</p>
         </article>
-        <article>
+        <article class="pain-card reveal reveal-delay-2">
+          <div class="pain-icon">✕</div>
           <h3>Other apps treat grammar as an afterthought</h3>
-          <p>Grammar can often be buried in footnotes. GermanGenie puts it center
+          <p>Duolingo and Babbel bury grammar in footnotes. GermanGenie puts it center
           stage — because without grammar, fluency is just memorizing phrases.</p>
         </article>
       </div>
     </section>
 
-    
-    <section>
-      <div>
-        <!-- App screenshot placeholder -->
-      </div>
-      <div>
-        <p>The Solution</p>
-        <h2>Everything you need, nothing you don't.</h2>
-        <p>GermanGenie is built around grammar — not vocabulary lists or travel phrases.
-        Every lesson connects logically to the last.</p>
+    <!-- FEATURES -->
+    <section class="section-alt">
+      <div class="features-layout">
+        <div class="features-img">
+          <!-- App screenshot goes here -->
+        </div>
         <div>
-          <div>
-            <span>01</span>
-            <div>
-              <h4>Puzzle-based learning paths</h4>
-              <p>Each grammar concept is a puzzle piece. Complete a topic, unlock the next.
-              You always know exactly where you stand and what comes next.</p>
+          <p class="section-tag tag-blue">The Solution</p>
+          <h2 class="section-h2">Everything you need, nothing you don't.</h2>
+          <p class="section-sub">GermanGenie is built around grammar — not vocabulary lists or travel phrases.
+          Every lesson connects logically to the last.</p>
+          <div class="features-list">
+            <div class="feature-item reveal">
+              <div class="feature-num">01</div>
+              <div>
+                <h4>Puzzle-based learning paths</h4>
+                <p>Each grammar concept is a puzzle piece. Complete a topic, unlock the next.
+                You always know exactly where you stand and what comes next.</p>
+              </div>
             </div>
-          </div>
-          <div>
-            <span>02</span>
-            <div>
-              <h4>Designed for English speakers specifically</h4>
-              <p>Explanations reference English grammar directly — so your existing
-              instincts work for you rather than against you.</p>
+            <div class="feature-item reveal reveal-delay-1">
+              <div class="feature-num">02</div>
+              <div>
+                <h4>Designed for English speakers specifically</h4>
+                <p>Explanations reference English grammar directly — so your existing
+                instincts work for you rather than against you.</p>
+              </div>
             </div>
-          </div>
-          <div>
-            <span>03</span>
-            <div>
-              <h4>Instant, detailed grammar feedback</h4>
-              <p>Every mistake comes with a full explanation — not just a red cross.
-              Understand why something is wrong so it doesn't happen again.</p>
+            <div class="feature-item reveal reveal-delay-2">
+              <div class="feature-num">03</div>
+              <div>
+                <h4>Instant, detailed grammar feedback</h4>
+                <p>Every mistake comes with a full explanation — not just a red cross.
+                Understand why something is wrong so it doesn't happen again.</p>
+              </div>
             </div>
           </div>
         </div>
       </div>
     </section>
 
-    
+    <!-- HOW IT WORKS -->
     <section>
-      <p>How It Works</p>
-      <h2>Your learning path, piece by piece.</h2>
-      <div>
-        <div>
-          <span>01</span>
+      <p class="section-tag tag-blue">How It Works</p>
+      <h2 class="section-h2">Your learning path, piece by piece.</h2>
+      <div class="steps">
+        <div class="step reveal">
+          <div class="step-num">01</div>
+          <div class="step-pieces">
+            <div class="sp on"></div><div class="sp"></div><div class="sp"></div>
+          </div>
           <h3>Start with your first piece</h3>
           <p>A quick placement check tells GermanGenie exactly where to begin — whether
           that's absolute zero or picking up where you left off on another app.</p>
         </div>
-        <div>
-          <span>02</span>
+        <div class="step reveal reveal-delay-1">
+          <div class="step-num">02</div>
+          <div class="step-pieces">
+            <div class="sp on"></div><div class="sp on"></div><div class="sp"></div>
+          </div>
           <h3>Complete grammar modules</h3>
           <p>Work through structured lessons on cases, verb conjugation, and word order.
           Each finished module snaps visibly into your learning path — like a puzzle
           piece clicking into place.</p>
         </div>
-        <div>
-          <span>03</span>
+        <div class="step reveal reveal-delay-2">
+          <div class="step-num">03</div>
+          <div class="step-pieces">
+            <div class="sp on"></div><div class="sp on"></div><div class="sp on"></div>
+          </div>
           <h3>See the full picture emerge</h3>
           <p>As your puzzle fills in, German grammar becomes genuinely functional.
           Abstract rules become second nature — and you can see exactly how far you've come.</p>
@@ -154,111 +219,161 @@
       </div>
     </section>
 
-    
-    <section>
-      <p>Reviews</p>
-      <h2>Learners who finally got it.</h2>
-      <div>
-        <article>
-          <p>★★★★★</p>
-          <p>I spent two years on other apps and still couldn't construct a proper German
-          sentence. After six weeks with GermanGenie, the cases actually made sense
-          for the first time.</p>
-          <div>
-            <span>JM</span>
+    <!-- TESTIMONIALS -->
+    <section class="section-alt">
+      <p class="section-tag tag-green">Reviews</p>
+      <h2 class="section-h2">Learners who finally got it.</h2>
+      <div class="testi-grid">
+        <article class="testi-card reveal">
+          <div class="testi-stars">★★★★★</div>
+          <div class="testi-openquote">&ldquo;</div>
+          <p class="testi-quote">I spent two years on other apps and still couldn't construct
+          a proper German sentence. After six weeks with GermanGenie, the cases actually
+          made sense for the first time.</p>
+          <div class="testi-author">
+            <div class="testi-avatar av-blue">JM</div>
             <div>
-              <p>James M.</p>
-              <p>Expat living in Berlin</p>
+              <div class="testi-name">James M.</div>
+              <div class="testi-role">Expat living in Berlin</div>
             </div>
           </div>
         </article>
-        <article>
-          <p>★★★★★</p>
-          <p>The puzzle structure kept me coming back every day. I could actually see my
-          progress — it wasn't just a streak counter, it was a real map of what I'd
-          genuinely learned.</p>
-          <div>
-            <span>SR</span>
+        <article class="testi-card reveal reveal-delay-1">
+          <div class="testi-stars">★★★★★</div>
+          <div class="testi-openquote">&ldquo;</div>
+          <p class="testi-quote">The puzzle structure kept me coming back every day. I could
+          actually see my progress — it wasn't just a streak counter, it was a real map
+          of what I'd genuinely learned.</p>
+          <div class="testi-author">
+            <div class="testi-avatar av-green">SR</div>
             <div>
-              <p>Sarah R.</p>
-              <p>University student, UK</p>
+              <div class="testi-name">Sarah R.</div>
+              <div class="testi-role">University student, UK</div>
             </div>
           </div>
         </article>
-        <article>
-          <p>★★★★★</p>
-          <p>As someone who failed German in school, I was skeptical. The English-first
-          explanations made everything click. I'm now preparing for my B1 exam.</p>
-          <div>
-            <span>DK</span>
+        <article class="testi-card reveal reveal-delay-2">
+          <div class="testi-stars">★★★★★</div>
+          <div class="testi-openquote">&ldquo;</div>
+          <p class="testi-quote">As someone who failed German in school, I was skeptical.
+          The English-first explanations made everything click. I'm now preparing
+          for my B1 exam.</p>
+          <div class="testi-author">
+            <div class="testi-avatar av-red">DK</div>
             <div>
-              <p>Daniel K.</p>
-              <p>Professional, United States</p>
+              <div class="testi-name">Daniel K.</div>
+              <div class="testi-role">Professional, United States</div>
             </div>
           </div>
         </article>
       </div>
     </section>
 
-    
+    <!-- FAQ -->
     <section>
-      <p>FAQ</p>
-      <h2>Questions worth asking</h2>
-      <div>
-        <details open>
-          <summary>Do I need any German knowledge to start?</summary>
-          <p>No prior German is required. GermanGenie starts from absolute zero and builds
-          systematically. A short placement check at the start ensures you begin at
-          exactly the right level.</p>
-        </details>
-        <details>
-          <summary>Is GermanGenie focused on grammar only?</summary>
-          <p>Grammar is the foundation, but GermanGenie also covers vocabulary, reading
-          comprehension, and sentence construction — all taught through the lens of
-          grammar so everything connects logically.</p>
-        </details>
-        <details>
-          <summary>How is GermanGenie different from Duolingo or Babbel?</summary>
-          <p>Most apps prioritize vocabulary and conversational phrases. GermanGenie puts
-          grammar center stage, with English-specific explanations that help you understand
-          the structure of the language — not just memorize it.</p>
-        </details>
-        <details>
-          <summary>Does GermanGenie cover all four German grammatical cases?</summary>
-          <p>Yes. GermanGenie covers all four German grammatical cases — nominative,
-          accusative, dative, and genitive — with dedicated modules for each, plus lessons
-          on how they interact in full sentences.</p>
-        </details>
-        <details>
-          <summary>How long until I see real progress?</summary>
-          <p>Most learners report noticeably improved grammar confidence within 3–4 weeks
-          of consistent use (15–20 minutes per day). The puzzle-based structure makes
-          progress visible from day one.</p>
-        </details>
+      <p class="section-tag tag-blue">FAQ</p>
+      <h2 class="section-h2">Questions worth asking</h2>
+      <div class="faq-list">
+        <div class="faq-item">
+          <details open>
+            <summary>
+              Do I need any German knowledge to start?
+              <div class="faq-toggle">
+                <span class="faq-plus">+</span>
+                <span class="faq-minus">−</span>
+              </div>
+            </summary>
+            <p class="faq-answer">No prior German is required. GermanGenie starts from absolute
+            zero and builds systematically. A short placement check at the start ensures you
+            begin at exactly the right level.</p>
+          </details>
+        </div>
+        <div class="faq-item">
+          <details>
+            <summary>
+              Is GermanGenie focused on grammar only?
+              <div class="faq-toggle">
+                <span class="faq-plus">+</span>
+                <span class="faq-minus">−</span>
+              </div>
+            </summary>
+            <p class="faq-answer">Grammar is the foundation, but GermanGenie also covers
+            vocabulary, reading comprehension, and sentence construction — all taught through
+            the lens of grammar so everything connects logically.</p>
+          </details>
+        </div>
+        <div class="faq-item">
+          <details>
+            <summary>
+              How is GermanGenie different from Duolingo or Babbel?
+              <div class="faq-toggle">
+                <span class="faq-plus">+</span>
+                <span class="faq-minus">−</span>
+              </div>
+            </summary>
+            <p class="faq-answer">Most apps prioritize vocabulary and conversational phrases.
+            GermanGenie puts grammar center stage, with English-specific explanations that help
+            you understand the structure of the language — not just memorize it.</p>
+          </details>
+        </div>
+        <div class="faq-item">
+          <details>
+            <summary>
+              Does GermanGenie cover all four German grammatical cases?
+              <div class="faq-toggle">
+                <span class="faq-plus">+</span>
+                <span class="faq-minus">−</span>
+              </div>
+            </summary>
+            <p class="faq-answer">Yes. GermanGenie covers all four German grammatical cases —
+            nominative, accusative, dative, and genitive — with dedicated modules for each,
+            plus lessons on how they interact in full sentences.</p>
+          </details>
+        </div>
+        <div class="faq-item">
+          <details>
+            <summary>
+              How long until I see real progress?
+              <div class="faq-toggle">
+                <span class="faq-plus">+</span>
+                <span class="faq-minus">−</span>
+              </div>
+            </summary>
+            <p class="faq-answer">Most learners report noticeably improved grammar confidence
+            within 3–4 weeks of consistent use (15–20 minutes per day). The puzzle-based
+            structure makes progress visible from day one.</p>
+          </details>
+        </div>
       </div>
     </section>
 
-    
-    <section>
-      <h2>Your first piece is <em>waiting.</em></h2>
-      <p>Join thousands of English speakers who stopped struggling with German grammar
-      — with GermanGenie.</p>
-      <button>Start learning free</button>
+    <!-- CLOSING CTA -->
+    <section class="cta-section" id="cta-section">
+      <div class="cta-glow"></div>
+      <h2 class="reveal">Your first piece is <em>waiting.</em></h2>
+      <p class="reveal reveal-delay-1">
+        Join thousands of English speakers who stopped struggling with German grammar
+        — and started actually understanding it.
+      </p>
+      <button class="btn-primary reveal reveal-delay-2" onclick="ctaClick()">
+        Start learning free
+      </button>
     </section>
 
   </main>
 
   <footer>
-    <a href="/">GermanGenie</a>
-    <nav>
+    <a href="/" class="footer-logo">German<span>Genie</span></a>
+    <nav class="footer-links">
       <a href="/about">About Us</a>
       <a href="/privacy">Privacy Policy</a>
       <a href="/terms">Terms &amp; Conditions</a>
       <a href="/contact">Contact</a>
     </nav>
-    <p>© 2025 GermanGenie. All Rights Reserved.</p>
+    <p class="footer-copy">© 2025 GermanGenie. All Rights Reserved.</p>
   </footer>
+
+  <script src="js/main.js"></script>
 
 </body>
 </html>
-```
