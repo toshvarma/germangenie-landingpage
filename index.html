@@ -9,7 +9,6 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,700;1,700&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
 
-
   <link rel="stylesheet" href="css/reset.css" />
   <link rel="stylesheet" href="css/variables.css" />
   <link rel="stylesheet" href="css/layout.css" />
@@ -37,7 +36,6 @@
 
   <main>
 
- 
     <section class="hero" aria-labelledby="hero-heading">
       <div class="hero-text">
         <h1 id="hero-heading">
@@ -77,7 +75,6 @@
       </div>
     </section>
 
-
     <div class="proof-bar" role="region" aria-label="Social proof statistics">
       <div class="proof-item reveal">
         <div class="proof-icon green" aria-hidden="true">★</div>
@@ -113,7 +110,6 @@
       </div>
     </div>
 
-
     <section aria-labelledby="pain-heading">
       <div class="pain-header">
         <p class="section-tag tag-red">The Problem</p>
@@ -145,41 +141,45 @@
       </div>
     </section>
 
-
     <section class="section-alt" aria-labelledby="features-heading">
       <div class="features-layout">
-        <div class="app-carousel" id="appCarousel">
 
-  <div class="carousel-track" id="carouselTrack">
-    <div class="carousel-slide">
-      <img src="images/app-screen-exercise.webp"
-           alt="GermanGenie grammar exercise screen showing a sentence construction challenge" />
-    </div>
-    <div class="carousel-slide">
-      <img src="images/app-screen-feedback.webp"
-           alt="GermanGenie feedback screen showing a detailed grammar correction explanation" />
-    </div>
-    <div class="carousel-slide">
-      <img src="images/app-screen-puzzle.webp"
-           alt="GermanGenie puzzle path screen showing the structured learning map" />
-    </div>
-  </div>
+        <div class="app-carousel-wrapper">
+          <div class="carousel-side" onclick="carouselMove(-1)" aria-hidden="true"></div>
+          <div style="flex:1;display:flex;flex-direction:column;align-items:center;">
+            <div class="app-carousel" id="appCarousel">
+              <div class="carousel-track" id="carouselTrack">
+                <div class="carousel-slide">
+                  <img src="images/app-screen-exercise.webp"
+                       alt="GermanGenie grammar exercise screen showing a sentence construction challenge" />
+                </div>
+                <div class="carousel-slide">
+                  <img src="images/app-screen-feedback.webp"
+                       alt="GermanGenie feedback screen showing a detailed grammar correction" />
+                </div>
+                <div class="carousel-slide">
+                  <img src="images/app-screen-puzzle.webp"
+                       alt="GermanGenie puzzle path screen showing the structured learning map" />
+                </div>
+              </div>
+              <button class="carousel-btn prev" onclick="carouselMove(-1)" aria-label="Previous screen">&#8249;</button>
+              <button class="carousel-btn next" onclick="carouselMove(1)"  aria-label="Next screen">&#8250;</button>
+            </div>
+            <div class="carousel-footer">
+              <div class="carousel-dots" role="tablist" aria-label="App screen navigation">
+                <button class="carousel-dot active" onclick="carouselGo(0)" aria-label="Screen 1" role="tab"></button>
+                <button class="carousel-dot"        onclick="carouselGo(1)" aria-label="Screen 2" role="tab"></button>
+                <button class="carousel-dot"        onclick="carouselGo(2)" aria-label="Screen 3" role="tab"></button>
+              </div>
+              <div class="swipe-hint" id="swipeHint">
+                <span class="swipe-arrow">&#8594;</span>
+                <span>swipe to explore</span>
+              </div>
+            </div>
+          </div>
+          <div class="carousel-side" onclick="carouselMove(1)" aria-hidden="true"></div>
+        </div>
 
-  <button class="carousel-btn prev" onclick="carouselMove(-1)" aria-label="Previous screen">&#8249;</button>
-  <button class="carousel-btn next" onclick="carouselMove(1)"  aria-label="Next screen">&#8250;</button>
-
-  <div class="carousel-dots" role="tablist" aria-label="App screen navigation">
-    <button class="carousel-dot active" onclick="carouselGo(0)" aria-label="Screen 1" role="tab"></button>
-    <button class="carousel-dot"        onclick="carouselGo(1)" aria-label="Screen 2" role="tab"></button>
-    <button class="carousel-dot"        onclick="carouselGo(2)" aria-label="Screen 3" role="tab"></button>
-  </div>
-
-  <div class="swipe-hint" id="swipeHint">
-    <span class="swipe-arrow">&#8594;</span>
-    <span>swipe</span>
-  </div>
-
-</div>
         <div>
           <p class="section-tag tag-blue">The Solution</p>
           <h2 class="section-h2" id="features-heading">Everything you need, nothing you don't.</h2>
@@ -212,9 +212,9 @@
             </div>
           </div>
         </div>
+
       </div>
     </section>
-
 
     <section aria-labelledby="how-heading">
       <p class="section-tag tag-blue">How It Works</p>
@@ -251,7 +251,6 @@
       </div>
     </section>
 
-    
     <section class="section-alt" aria-labelledby="reviews-heading">
       <p class="section-tag tag-green">Reviews</p>
       <h2 class="section-h2" id="reviews-heading">Learners who finally got it.</h2>
@@ -301,7 +300,6 @@
       </div>
     </section>
 
- 
     <section aria-labelledby="faq-heading">
       <p class="section-tag tag-blue">FAQ</p>
       <h2 class="section-h2" id="faq-heading">Questions worth asking</h2>
@@ -379,7 +377,6 @@
       </div>
     </section>
 
-   
     <section class="cta-section" id="cta-section" aria-labelledby="cta-heading">
       <div class="cta-glow" aria-hidden="true"></div>
       <h2 class="reveal" id="cta-heading">Your first piece is <em>waiting.</em></h2>
