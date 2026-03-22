@@ -481,6 +481,15 @@
   border-color: rgba(42, 232, 56, 0.35);
 }
 
+.testi-stars {
+  color: #2AE838;
+  font-size: 12px;
+  letter-spacing: 2px;
+  margin-bottom: 14px;
+}
+
+.tag-green { color: #2AE838; }
+
 .step h3 {
   font-size: 15px;
   font-weight: 500;
