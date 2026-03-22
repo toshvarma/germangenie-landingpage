@@ -214,7 +214,7 @@
 }
 
 .pain-card:nth-child(1)::before { background: var(--blue); }
-.pain-card:nth-child(2)::before { background: var(--accent); }
+.pain-card:nth-child(2)::before { background: #2AE838; }
 .pain-card:nth-child(3)::before { background: var(--red); }
 
 .pain-card:hover {
