@@ -109,32 +109,6 @@
 
 .nav-logo span { color: var(--accent); }
 
-
-.hero-eyebrow {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  background: rgba(42, 232, 56, 0.07);
-  color: var(--accent);
-  font-size: 10px;
-  font-weight: 500;
-  letter-spacing: 2.5px;
-  text-transform: uppercase;
-  padding: 6px 14px;
-  border-radius: 4px;
-  margin-bottom: 22px;
-  border: 1px solid rgba(42, 232, 56, 0.15);
-}
-
-.hero-eyebrow::before {
-  content: '';
-  width: 5px;
-  height: 5px;
-  border-radius: 50%;
-  background: var(--accent);
-  flex-shrink: 0;
-}
-
 .hero h1 {
   font-family: var(--font-display);
   font-size: 58px;
