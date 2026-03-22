@@ -39,3 +39,49 @@ function setLang(lang, btn) {
 function ctaClick() {
   alert('Sign-up flow coming soon!');
 }
+
+(function () {
+  var track      = document.getElementById('carouselTrack');
+  var dots       = document.querySelectorAll('.carousel-dot');
+  var hint       = document.getElementById('swipeHint');
+  var total      = 3;
+  var current    = 0;
+  var startX     = 0;
+  var interacted = false;
+
+  function goTo(index) {
+    current = (index + total) % total;
+    track.style.transform = 'translateX(-' + (current * 100) + '%)';
+    dots.forEach(function (d, i) {
+      d.classList.toggle('active', i === current);
+    });
+
+    if (!interacted && hint) {
+      interacted = true;
+      hint.classList.add('hidden');
+    }
+  }
+
+
+  window.carouselMove = function (dir) { goTo(current + dir); };
+  window.carouselGo   = function (i)   { goTo(i); };
+
+
+  var carousel = document.getElementById('appCarousel');
+  if (carousel) {
+    carousel.addEventListener('touchstart', function (e) {
+      startX = e.touches[0].clientX;
+    }, { passive: true });
+
+    carousel.addEventListener('touchend', function (e) {
+      var diff = startX - e.changedTouches[0].clientX;
+      if (Math.abs(diff) > 40) {
+        goTo(current + (diff > 0 ? 1 : -1));
+      }
+    }, { passive: true });
+  }
+
+  var timer = setInterval(function () {
+    if (!interacted) goTo(current + 1);
+  }, 4000);
+}());
