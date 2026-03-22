@@ -44,17 +44,29 @@ function ctaClick() {
   var track      = document.getElementById('carouselTrack');
   var dots       = document.querySelectorAll('.carousel-dot');
   var hint       = document.getElementById('swipeHint');
+  var peekPrev   = document.getElementById('peekPrev');
+  var peekNext   = document.getElementById('peekNext');
   var total      = 3;
   var current    = 0;
   var startX     = 0;
   var interacted = false;
 
+  var slides = [
+    'images/app-screen-exercise.webp',
+    'images/app-screen-feedback.webp',
+    'images/app-screen-puzzle.webp'
+  ];
+
   function goTo(index) {
     current = (index + total) % total;
     track.style.transform = 'translateX(-' + (current * 100) + '%)';
+
     dots.forEach(function (d, i) {
       d.classList.toggle('active', i === current);
     });
+
+    if (peekPrev) peekPrev.querySelector('img').src = slides[(current - 1 + total) % total];
+    if (peekNext) peekNext.querySelector('img').src = slides[(current + 1) % total];
 
     if (!interacted && hint) {
       interacted = true;
@@ -62,10 +74,8 @@ function ctaClick() {
     }
   }
 
-
   window.carouselMove = function (dir) { goTo(current + dir); };
   window.carouselGo   = function (i)   { goTo(i); };
-
 
   var carousel = document.getElementById('appCarousel');
   if (carousel) {
@@ -75,9 +85,7 @@ function ctaClick() {
 
     carousel.addEventListener('touchend', function (e) {
       var diff = startX - e.changedTouches[0].clientX;
-      if (Math.abs(diff) > 40) {
-        goTo(current + (diff > 0 ? 1 : -1));
-      }
+      if (Math.abs(diff) > 40) goTo(current + (diff > 0 ? 1 : -1));
     }, { passive: true });
   }
 

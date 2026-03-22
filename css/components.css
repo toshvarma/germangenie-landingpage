@@ -255,22 +255,25 @@
   position: relative;
   display: flex;
   align-items: center;
-  gap: 16px;
+  justify-content: center;
+  gap: 0;
   width: 100%;
+  padding: 0 48px;
 }
 
 .app-carousel {
   position: relative;
-  width: 100%;
-  max-width: 220px;
-  margin: 0 auto;
-  overflow: hidden;
-  border-radius: 32px;
+  width: 220px;
+  flex-shrink: 0;
+  overflow: visible;
+  z-index: 2;
 }
 
 .carousel-track {
   display: flex;
   transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  border-radius: 32px;
+  overflow: hidden;
 }
 
 .carousel-slide {
@@ -282,54 +285,73 @@
   width: 100%;
   height: auto;
   display: block;
-  border-radius: 32px;
   max-height: 420px;
   object-fit: cover;
   object-position: top;
 }
 
 .carousel-side {
-  flex-shrink: 0;
-  width: 44px;
-  height: 420px;
-  background: var(--bg3);
-  border-radius: 12px;
-  border: 1px solid var(--border);
-  opacity: 0.4;
-  cursor: pointer;
-  transition: opacity 0.2s;
-  align-self: center;
-}
-
-.carousel-side:hover {
-  opacity: 0.7;
+  display: none;
 }
 
 .carousel-btn {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  background: var(--bg3);
-  border: 1px solid var(--border);
-  color: var(--text);
-  width: 32px;
-  height: 32px;
-  border-radius: 50%;
+  background: transparent;
+  border: none;
+  color: var(--muted);
+  width: 40px;
+  height: 40px;
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  font-size: 16px;
-  transition: background 0.2s;
-  z-index: 2;
+  font-size: 28px;
+  transition: color 0.2s, transform 0.2s;
+  z-index: 10;
 }
 
 .carousel-btn:hover {
-  background: rgba(42, 232, 56, 0.15);
-  border-color: rgba(42, 232, 56, 0.3);
   color: var(--accent);
+  transform: translateY(-50%) scale(1.15);
 }
 
+.carousel-btn.prev { left: 0; }
+.carousel-btn.next { right: 0; }
+
+/* Peek cards — the two background screens */
+.carousel-peek {
+  position: absolute;
+  top: 50%;
+  width: 200px;
+  max-height: 380px;
+  border-radius: 28px;
+  overflow: hidden;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.carousel-peek img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top;
+}
+
+.carousel-peek-prev {
+  left: calc(50% - 110px - 80px);
+  transform: translateY(-50%) translateX(-60%) scale(0.88);
+  opacity: 0.35;
+  filter: blur(1px);
+}
+
+.carousel-peek-next {
+  right: calc(50% - 110px - 80px);
+  transform: translateY(-50%) translateX(60%) scale(0.88);
+  opacity: 0.35;
+  filter: blur(1px);
+}
 .carousel-btn.prev { left: -44px; }
 .carousel-btn.next { right: -44px; }
 
