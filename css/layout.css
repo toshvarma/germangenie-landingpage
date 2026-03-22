@@ -1,6 +1,4 @@
 
-
-
 body {
   background: var(--bg);
   color: var(--text);
@@ -127,7 +125,6 @@ section {
   background: var(--border);
 }
 
-
 .testi-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -150,7 +147,6 @@ section {
   overflow: hidden;
 }
 
-
 footer {
   padding: 34px var(--space-xl);
   border-top: 1px solid var(--border);
@@ -165,4 +161,194 @@ footer {
   display: flex;
   gap: 24px;
   flex-wrap: wrap;
+}
+
+
+@media (max-width: 1024px) {
+
+  .nav {
+    padding: 16px 40px;
+  }
+
+  section {
+    padding: 60px 40px;
+  }
+
+  .hero {
+    padding: 60px 40px;
+    gap: 32px;
+    min-height: auto;
+  }
+
+  .hero h1 {
+    font-size: 44px;
+  }
+
+  .proof-bar {
+    padding: 16px 40px;
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+
+  .proof-item {
+    padding: 0 16px;
+  }
+
+  .pain-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+  }
+
+  .features-layout {
+    gap: 40px;
+  }
+
+  .steps {
+    gap: 0;
+  }
+
+  .testi-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+  }
+
+  .cta-section {
+    padding: 72px 40px;
+  }
+
+  footer {
+    padding: 28px 40px;
+  }
+}
+
+
+@media (max-width: 767px) {
+
+  .nav {
+    padding: 14px 20px;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+
+  .nav-right {
+    gap: 10px;
+  }
+
+  .btn-nav {
+    font-size: 12px;
+    padding: 8px 14px;
+  }
+
+  section {
+    padding: 48px 20px;
+  }
+
+
+  .hero {
+    grid-template-columns: 1fr;
+    padding: 48px 20px;
+    gap: 36px;
+    min-height: auto;
+  }
+
+  .hero h1 {
+    font-size: 36px;
+    letter-spacing: -1px;
+  }
+
+  .hero-sub {
+    font-size: 15px;
+  }
+
+  .puzzle-zone {
+    max-width: 280px;
+    margin: 0 auto;
+  }
+
+  .btn-primary {
+    width: 100%;
+    text-align: center;
+  }
+
+
+  .proof-bar {
+    padding: 20px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+  }
+
+  .proof-divider {
+    display: none;
+  }
+
+  .proof-item {
+    padding: 0;
+    flex: unset;
+  }
+
+
+  .pain-grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+
+  .features-layout {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+
+  .features-img {
+    aspect-ratio: 16/9;
+  }
+
+  .steps {
+    grid-template-columns: 1fr;
+    margin-top: 32px;
+  }
+
+  .step {
+    padding: 24px 0;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .step:last-child {
+    border-bottom: none;
+  }
+
+  .step:not(:last-child)::after {
+    display: none;
+  }
+
+
+  .testi-grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+ 
+  .faq-list {
+    max-width: 100%;
+  }
+
+
+  .cta-section {
+    padding: 60px 20px;
+  }
+
+  .cta-section h2 {
+    font-size: 34px;
+  }
+
+  footer {
+    padding: 28px 20px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+  }
+
+  .footer-links {
+    gap: 16px;
+  }
 }
