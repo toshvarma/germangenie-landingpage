@@ -1,15 +1,19 @@
-// main.js — Step 1: Basic functionality
 
-// Puzzle animation
+
+
 window.addEventListener('load', function () {
+
+
   var puzzleSvg = document.getElementById('puzzle-svg');
   if (puzzleSvg) {
     puzzleSvg.classList.add('assembled');
   }
+
+  revealInView();
 });
 
-// Scroll reveal — basic scroll event listener
-window.addEventListener('scroll', function () {
+
+function revealInView() {
   var reveals = document.querySelectorAll('.reveal');
   reveals.forEach(function (el) {
     var rect = el.getBoundingClientRect();
@@ -17,12 +21,11 @@ window.addEventListener('scroll', function () {
       el.classList.add('revealed');
     }
   });
-});
+}
 
-// Run once on load in case elements are already in view
-window.dispatchEvent(new Event('scroll'));
+window.addEventListener('scroll', revealInView);
 
-// Language toggle
+
 function setLang(lang, btn) {
   document.querySelectorAll('.lang-btn').forEach(function (b) {
     b.classList.remove('active');
@@ -32,7 +35,7 @@ function setLang(lang, btn) {
   btn.setAttribute('aria-pressed', 'true');
 }
 
-// CTA handler
+
 function ctaClick() {
   alert('Sign-up flow coming soon!');
 }
