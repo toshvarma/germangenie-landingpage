@@ -74,7 +74,7 @@
 }
 
 .lang-btn {
-  padding: 6px 11px;
+  padding: 8px 14px;
   color: var(--muted);
   background: transparent;
   border: none;
@@ -83,6 +83,7 @@
   font-weight: 500;
   letter-spacing: 0.5px;
   transition: background 0.15s, color 0.15s;
+  min-height: 36px;
 }
 
 .lang-btn.active {
@@ -154,8 +155,9 @@
   position: relative;
   overflow: hidden;
   margin-left: auto;
+  min-height: 300px; 
+  contain: layout;   
 }
-
 .puzzle-svg {
   width: 72%;
   height: 72%;
@@ -364,14 +366,15 @@
 }
 
 .carousel-dot {
-  width: 6px;
-  height: 6px;
+  width: 12px;
+  height: 12px;
   border-radius: 50%;
   background: rgba(242, 244, 251, 0.2);
   border: none;
   cursor: pointer;
-  padding: 0;
+  padding: 6px;
   transition: all 0.25s;
+  background-clip: content-box;
 }
 
 .carousel-dot.active {
