@@ -145,48 +145,44 @@
       <div class="features-layout">
 
         <div class="app-carousel-wrapper">
-
-  <div class="carousel-peek carousel-peek-prev" id="peekPrev">
-    <img src="images/app-screen-puzzle.webp" alt="" aria-hidden="true" />
-  </div>
-
-  <div style="flex:1;display:flex;flex-direction:column;align-items:center;position:relative;">
-    <div class="app-carousel" id="appCarousel">
-      <div class="carousel-track" id="carouselTrack">
-        <div class="carousel-slide">
-          <img src="images/app-screen-exercise.webp"
-               alt="GermanGenie grammar exercise screen showing a sentence construction challenge" />
+          <div class="carousel-peek carousel-peek-prev" id="peekPrev">
+            <img src="images/app-screen-puzzle.webp" alt="" aria-hidden="true" />
+          </div>
+          <div class="carousel-peek carousel-peek-next" id="peekNext">
+            <img src="images/app-screen-feedback.webp" alt="" aria-hidden="true" />
+          </div>
+          <button class="carousel-btn prev" onclick="carouselMove(-1)" aria-label="Previous screen">&#8249;</button>
+          <div style="display:flex;flex-direction:column;align-items:center;">
+            <div class="app-carousel" id="appCarousel">
+              <div class="carousel-track" id="carouselTrack">
+                <div class="carousel-slide">
+                  <img src="images/app-screen-exercise.webp"
+                       alt="GermanGenie grammar exercise screen showing a sentence construction challenge" />
+                </div>
+                <div class="carousel-slide">
+                  <img src="images/app-screen-feedback.webp"
+                       alt="GermanGenie feedback screen showing a detailed grammar correction" />
+                </div>
+                <div class="carousel-slide">
+                  <img src="images/app-screen-puzzle.webp"
+                       alt="GermanGenie puzzle path screen showing the structured learning map" />
+                </div>
+              </div>
+            </div>
+            <div class="carousel-footer">
+              <div class="carousel-dots" role="tablist" aria-label="App screen navigation">
+                <button class="carousel-dot active" onclick="carouselGo(0)" aria-label="Screen 1" role="tab"></button>
+                <button class="carousel-dot"        onclick="carouselGo(1)" aria-label="Screen 2" role="tab"></button>
+                <button class="carousel-dot"        onclick="carouselGo(2)" aria-label="Screen 3" role="tab"></button>
+              </div>
+              <div class="swipe-hint" id="swipeHint">
+                <span class="swipe-arrow">&#8594;</span>
+                <span>swipe to explore</span>
+              </div>
+            </div>
+          </div>
+          <button class="carousel-btn next" onclick="carouselMove(1)" aria-label="Next screen">&#8250;</button>
         </div>
-        <div class="carousel-slide">
-          <img src="images/app-screen-feedback.webp"
-               alt="GermanGenie feedback screen showing a detailed grammar correction" />
-        </div>
-        <div class="carousel-slide">
-          <img src="images/app-screen-puzzle.webp"
-               alt="GermanGenie puzzle path screen showing the structured learning map" />
-        </div>
-      </div>
-      <button class="carousel-btn prev" onclick="carouselMove(-1)" aria-label="Previous screen">&#8249;</button>
-      <button class="carousel-btn next" onclick="carouselMove(1)"  aria-label="Next screen">&#8250;</button>
-    </div>
-    <div class="carousel-footer">
-      <div class="carousel-dots" role="tablist" aria-label="App screen navigation">
-        <button class="carousel-dot active" onclick="carouselGo(0)" aria-label="Screen 1" role="tab"></button>
-        <button class="carousel-dot"        onclick="carouselGo(1)" aria-label="Screen 2" role="tab"></button>
-        <button class="carousel-dot"        onclick="carouselGo(2)" aria-label="Screen 3" role="tab"></button>
-      </div>
-      <div class="swipe-hint" id="swipeHint">
-        <span class="swipe-arrow">&#8594;</span>
-        <span>swipe to explore</span>
-      </div>
-    </div>
-  </div>
-
-  <div class="carousel-peek carousel-peek-next" id="peekNext">
-    <img src="images/app-screen-feedback.webp" alt="" aria-hidden="true" />
-  </div>
-
-</div>
 
         <div>
           <p class="section-tag tag-blue">The Solution</p>

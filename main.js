@@ -1,22 +1,17 @@
-
-
+'use strict';
 
 window.addEventListener('load', function () {
-
-
-  var puzzleSvg = document.getElementById('puzzle-svg');
+  const puzzleSvg = document.getElementById('puzzle-svg');
   if (puzzleSvg) {
     puzzleSvg.classList.add('assembled');
   }
-
   revealInView();
 });
 
-
 function revealInView() {
-  var reveals = document.querySelectorAll('.reveal');
-  reveals.forEach(function (el) {
-    var rect = el.getBoundingClientRect();
+  const reveals = document.querySelectorAll('.reveal');
+  reveals.forEach(el => {
+    const rect = el.getBoundingClientRect();
     if (rect.top < window.innerHeight) {
       el.classList.add('revealed');
     }
@@ -25,9 +20,8 @@ function revealInView() {
 
 window.addEventListener('scroll', revealInView);
 
-
 function setLang(lang, btn) {
-  document.querySelectorAll('.lang-btn').forEach(function (b) {
+  document.querySelectorAll('.lang-btn').forEach(b => {
     b.classList.remove('active');
     b.setAttribute('aria-pressed', 'false');
   });
@@ -35,38 +29,63 @@ function setLang(lang, btn) {
   btn.setAttribute('aria-pressed', 'true');
 }
 
-
 function ctaClick() {
   alert('Sign-up flow coming soon!');
 }
 
 (function () {
-  var track      = document.getElementById('carouselTrack');
-  var dots       = document.querySelectorAll('.carousel-dot');
-  var hint       = document.getElementById('swipeHint');
-  var peekPrev   = document.getElementById('peekPrev');
-  var peekNext   = document.getElementById('peekNext');
-  var total      = 3;
-  var current    = 0;
-  var startX     = 0;
-  var interacted = false;
+  const track     = document.getElementById('carouselTrack');
+  const dots      = document.querySelectorAll('.carousel-dot');
+  const hint      = document.getElementById('swipeHint');
+  const peekPrev  = document.getElementById('peekPrev');
+  const peekNext  = document.getElementById('peekNext');
+  const total     = 3;
+  let current     = 0;
+  let startX      = 0;
+  let interacted  = false;
+  let animating   = false;
 
-  var slides = [
+  const slides = [
     'images/app-screen-exercise.webp',
     'images/app-screen-feedback.webp',
     'images/app-screen-puzzle.webp'
   ];
 
+  function animatePeek(peekEl, newSrc) {
+    if (!peekEl) return;
+    const img = peekEl.querySelector('img');
+    if (img.src.includes(newSrc)) return;
+
+    peekEl.style.transition = 'opacity 0.3s ease, transform 0.3s ease';
+    peekEl.style.opacity = '0';
+    peekEl.style.transform = 'translateY(-50%) scale(0.75)';
+
+    setTimeout(() => {
+      img.src = newSrc;
+      peekEl.style.opacity = '0.3';
+      peekEl.style.transform = 'translateY(-50%) scale(0.85)';
+    }, 200);
+  }
+
+  function updatePeek(index) {
+    const prevIndex = (index - 1 + total) % total;
+    const nextIndex = (index + 1) % total;
+    animatePeek(peekPrev, slides[prevIndex]);
+    animatePeek(peekNext, slides[nextIndex]);
+  }
+
   function goTo(index) {
+    if (animating) return;
+    animating = true;
+
     current = (index + total) % total;
-    track.style.transform = 'translateX(-' + (current * 100) + '%)';
+    track.style.transform = `translateX(-${current * 100}%)`;
 
-    dots.forEach(function (d, i) {
-      d.classList.toggle('active', i === current);
-    });
+    dots.forEach((d, i) => d.classList.toggle('active', i === current));
 
-    if (peekPrev) peekPrev.querySelector('img').src = slides[(current - 1 + total) % total];
-    if (peekNext) peekNext.querySelector('img').src = slides[(current + 1) % total];
+    updatePeek(current);
+
+    setTimeout(() => { animating = false; }, 420);
 
     if (!interacted && hint) {
       interacted = true;
@@ -74,22 +93,24 @@ function ctaClick() {
     }
   }
 
-  window.carouselMove = function (dir) { goTo(current + dir); };
-  window.carouselGo   = function (i)   { goTo(i); };
+  window.carouselMove = (dir) => goTo(current + dir);
+  window.carouselGo   = (i)   => goTo(i);
 
-  var carousel = document.getElementById('appCarousel');
+  const carousel = document.getElementById('appCarousel');
   if (carousel) {
-    carousel.addEventListener('touchstart', function (e) {
+    carousel.addEventListener('touchstart', e => {
       startX = e.touches[0].clientX;
     }, { passive: true });
 
-    carousel.addEventListener('touchend', function (e) {
-      var diff = startX - e.changedTouches[0].clientX;
+    carousel.addEventListener('touchend', e => {
+      const diff = startX - e.changedTouches[0].clientX;
       if (Math.abs(diff) > 40) goTo(current + (diff > 0 ? 1 : -1));
     }, { passive: true });
   }
 
-  var timer = setInterval(function () {
+  setInterval(() => {
     if (!interacted) goTo(current + 1);
   }, 4000);
+
+  updatePeek(0);
 }());
