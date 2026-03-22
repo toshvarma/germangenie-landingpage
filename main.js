@@ -1,24 +1,25 @@
 'use strict';
 
-window.addEventListener('load', function () {
+window.addEventListener('load', () => {
   const puzzleSvg = document.getElementById('puzzle-svg');
-  if (puzzleSvg) {
-    puzzleSvg.classList.add('assembled');
-  }
-  revealInView();
+  if (puzzleSvg) puzzleSvg.classList.add('assembled');
 });
 
-function revealInView() {
+(function initScrollReveal() {
   const reveals = document.querySelectorAll('.reveal');
-  reveals.forEach(el => {
-    const rect = el.getBoundingClientRect();
-    if (rect.top < window.innerHeight) {
-      el.classList.add('revealed');
-    }
-  });
-}
+  if (!reveals.length) return;
 
-window.addEventListener('scroll', revealInView);
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('revealed');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1 });
+
+  reveals.forEach(el => observer.observe(el));
+}());
 
 function setLang(lang, btn) {
   document.querySelectorAll('.lang-btn').forEach(b => {
@@ -38,7 +39,7 @@ function ctaClick() {
   overlay.style.cssText = `
     position: fixed;
     inset: 0;
-    background: rgba(0, 0, 0, 0.6);
+    background: rgba(0,0,0,0.6);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -134,17 +135,17 @@ function closeCtaModal() {
   }, 220);
 }
 
-(function () {
-  const track     = document.getElementById('carouselTrack');
-  const dots      = document.querySelectorAll('.carousel-dot');
-  const hint      = document.getElementById('swipeHint');
-  const peekPrev  = document.getElementById('peekPrev');
-  const peekNext  = document.getElementById('peekNext');
-  const total     = 3;
-  let current     = 0;
-  let startX      = 0;
-  let interacted  = false;
-  let animating   = false;
+(function initCarousel() {
+  const track    = document.getElementById('carouselTrack');
+  const dots     = document.querySelectorAll('.carousel-dot');
+  const hint     = document.getElementById('swipeHint');
+  const peekPrev = document.getElementById('peekPrev');
+  const peekNext = document.getElementById('peekNext');
+  const total    = 3;
+  let current    = 0;
+  let startX     = 0;
+  let interacted = false;
+  let animating  = false;
 
   const slides = [
     'images/app-screen-exercise.webp',
@@ -152,7 +153,7 @@ function closeCtaModal() {
     'images/app-screen-puzzle.webp'
   ];
 
-  function animatePeek(peekEl, newSrc) {
+  const animatePeek = (peekEl, newSrc) => {
     if (!peekEl) return;
     const img = peekEl.querySelector('img');
     if (img.src.includes(newSrc)) return;
@@ -166,24 +167,20 @@ function closeCtaModal() {
       peekEl.style.opacity = '0.3';
       peekEl.style.transform = 'translateY(-50%) scale(0.85)';
     }, 200);
-  }
+  };
 
-  function updatePeek(index) {
-    const prevIndex = (index - 1 + total) % total;
-    const nextIndex = (index + 1) % total;
-    animatePeek(peekPrev, slides[prevIndex]);
-    animatePeek(peekNext, slides[nextIndex]);
-  }
+  const updatePeek = index => {
+    animatePeek(peekPrev, slides[(index - 1 + total) % total]);
+    animatePeek(peekNext, slides[(index + 1) % total]);
+  };
 
-  function goTo(index) {
+  const goTo = index => {
     if (animating) return;
     animating = true;
 
     current = (index + total) % total;
     track.style.transform = `translateX(-${current * 100}%)`;
-
     dots.forEach((d, i) => d.classList.toggle('active', i === current));
-
     updatePeek(current);
 
     setTimeout(() => { animating = false; }, 420);
@@ -192,10 +189,10 @@ function closeCtaModal() {
       interacted = true;
       hint.classList.add('hidden');
     }
-  }
+  };
 
-  window.carouselMove = (dir) => goTo(current + dir);
-  window.carouselGo   = (i)   => goTo(i);
+  window.carouselMove = dir => goTo(current + dir);
+  window.carouselGo   = i   => goTo(i);
 
   const carousel = document.getElementById('appCarousel');
   if (carousel) {
@@ -209,9 +206,7 @@ function closeCtaModal() {
     }, { passive: true });
   }
 
-  setInterval(() => {
-    if (!interacted) goTo(current + 1);
-  }, 4000);
+  setInterval(() => { if (!interacted) goTo(current + 1); }, 4000);
 
   updatePeek(0);
 }());
