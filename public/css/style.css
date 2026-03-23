@@ -330,10 +330,6 @@ footer {
     font-size: 15px;
   }
 
-  .puzzle-zone {
-    max-width: 280px;
-    margin: 0 auto;
-  }
 
   .btn-primary {
     width: 100%;
@@ -571,7 +567,8 @@ footer {
   background: var(--bg3);
   border-radius: var(--radius-lg);
   aspect-ratio: 1;
-  max-width: 400px;
+  max-width: 398;
+  max-height: 398;
   width: 100%;
   border: 1px solid var(--border);
   display: flex;
