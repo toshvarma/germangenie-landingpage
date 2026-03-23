@@ -564,9 +564,9 @@ footer {
 }
 
 .puzzle-zone {
-  aspect-ratio: 1;
-  max-width: 398;
-  max-height: 398;
+  aspect-ratio: 1 / 1 ;
+  max-width: 398px;
+  max-height: 398px;
   border: 1px solid var(--border);
   display: flex;
   align-items: center;
