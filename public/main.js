@@ -1,8 +1,6 @@
 'use strict';
 
 window.addEventListener('load', () => {
-  const puzzleGrid = document.querySelector('.puzzle-grid');
-  if (puzzleGrid) puzzleGrid.classList.add('assembled');
 });
 
 (function initScrollReveal() {
