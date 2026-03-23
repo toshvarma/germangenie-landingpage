@@ -569,7 +569,6 @@ footer {
   aspect-ratio: 1;
   max-width: 398;
   max-height: 398;
-  width: 100%;
   border: 1px solid var(--border);
   display: flex;
   align-items: center;
@@ -577,7 +576,6 @@ footer {
   position: relative;
   overflow: hidden;
   margin-left: auto;
-  min-height: 300px; 
   contain: layout;   
 }
 .puzzle-svg {
