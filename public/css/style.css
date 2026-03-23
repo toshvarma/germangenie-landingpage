@@ -564,8 +564,6 @@ footer {
 }
 
 .puzzle-zone {
-  background: var(--bg3);
-  border-radius: var(--radius-lg);
   aspect-ratio: 1;
   max-width: 398;
   max-height: 398;
