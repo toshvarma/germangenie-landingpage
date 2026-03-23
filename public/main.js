@@ -1,8 +1,8 @@
 'use strict';
 
 window.addEventListener('load', () => {
-  const puzzleSvg = document.getElementById('puzzle-svg');
-  if (puzzleSvg) puzzleSvg.classList.add('assembled');
+  const puzzleGrid = document.querySelector('.puzzle-grid');
+  if (puzzleGrid) puzzleGrid.classList.add('assembled');
 });
 
 (function initScrollReveal() {
