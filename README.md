@@ -1,4 +1,4 @@
-GermanGenie Landing Page
+**GermanGenie Landing Page**
 
 This repository is a landing page for GermanGenie, a german-learnig app with a focused on Grammar. This was created as part of the university course "Content Marketing + SEO/SEM Strategie".
 
